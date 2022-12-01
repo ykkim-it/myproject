@@ -15,11 +15,12 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     from . import models
-    
-    #블루프린트
-    from .views import main_views
-    app.register_blueprint(main_views.bp)
 
+    #블루프린트
+    from .views import main_views, question_views
+    app.register_blueprint(main_views.bp)
+    app.register_blueprint(question_views.bp)
+    
     # main_views.py로 이동
     # @app.route('/')
     # def hello_pybo():
